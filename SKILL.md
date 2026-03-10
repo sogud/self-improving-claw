@@ -20,9 +20,9 @@ Captures user corrections, command failures, and missing features for continuous
 | Command fails | `ERRORS.md` | `exec` returns non-zero |
 | Feature missing | `FEATURE_REQUESTS.md` | User wants X, not supported |
 
-## Frustration Indicators
+## High-Priority Correction Signals
 
-The following indicate user is unhappy with your response:
+These indicate user is seriously unhappy and you need to log immediately:
 
 **Direct corrections:**
 - "不对", "错了", "不是这样", "不是"
@@ -31,15 +31,26 @@ The following indicate user is unhappy with your response:
 - "stop", "don't", "not right"
 - "fix this", "change it"
 
-**Strong frustration (user is upset):**
+**High-intensity feedback (authentic expressions of frustration):**
 - "傻逼", "草泥马", "操你妈", "他妈的"
-- "你他妈", "我操", "我靠"
+- "你他妈", "我操", "我靠", "搞什么"
 - "dumb", "stupid", "idiot", "wtf", "damn"
 - "are you kidding", "seriously", "come on"
+- "fuck", "shit", "bullshit"
 
-**Dismissive tone:**
+> Note: User genuinely uses profanity when frustrated. This is valid feedback—log it immediately.
+
+**Dismissive tone (user giving up):**
 - "算了", "不用了", "随你", "随便"
 - "whatever", "never mind", "forget it"
+
+## Why Profanity Matters
+
+When user says "草泥马" or "fuck", it means:
+- You made a significant error
+- They're genuinely frustrated
+- You need to stop and reassess
+- **Log immediately, don't defend**
 
 ## Log Templates
 
@@ -117,6 +128,6 @@ openclaw hooks enable self-improving-claw
 
 > Log it, learn it, don't repeat it.
 
-- **Log quickly**: One line + user quote
-- **Review weekly**: Check `.learnings/` regularly  
+- **Log quickly**: One line + user quote (even if profane)
+- **Review weekly**: Check `.learnings/` regularly
 - **Improve continuously**: Same mistake max 3 times
