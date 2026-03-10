@@ -1,6 +1,6 @@
 ---
 name: self-improving-claw
-description: "Captures corrections, errors, profanity (傻逼，草泥马，操你妈，他妈的，你他妈，我操，卧槽，妈的，滚，fuck, fucking, shit, bullshit, damn, hell, asshole, bitch, dumb, stupid, idiot, wtf, are you kidding, seriously), wrong tool usage, and missing features. Triggers on: user corrections, command failures, strong language, repeated mistakes, frustration signals."
+description: "Captures corrections, errors, profanity (傻逼，草泥马，操你妈，他妈的，你他妈，我操，卧槽，妈的，滚，fuck, fucking, shit, bullshit, damn, hell, asshole, bitch, dumb, stupid, idiot, wtf, are you kidding, seriously), command failures (error, failed, exception, exit code, crashed, timeout, rate limit, not found, permission denied), wrong tool usage, and missing features. Triggers on: user corrections, command failures, strong language, repeated mistakes, frustration signals, error messages."
 metadata:
   openclaw:
     emoji: "📝"
