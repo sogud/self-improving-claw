@@ -20,21 +20,26 @@ Captures user corrections, command failures, and missing features for continuous
 | Command fails | `ERRORS.md` | `exec` returns non-zero |
 | Feature missing | `FEATURE_REQUESTS.md` | User wants X, not supported |
 
-## Correction Keywords (Chinese & English)
+## Frustration Indicators
 
-The following keywords in user messages indicate a correction:
+The following indicate user is unhappy with your response:
 
-**Chinese:**
-- 不对, 错了, 不是这样, 不是
-- 你搞错了, 不对吧, 改下
-- 傻逼, 草泥马, 操你妈
-- 别, 不要, 别这样
+**Direct corrections:**
+- "不对", "错了", "不是这样", "不是"
+- "你搞错了", "不对吧", "改下"
+- "that's wrong", "no", "incorrect", "actually"
+- "stop", "don't", "not right"
+- "fix this", "change it"
 
-**English:**
-- that's wrong, no, incorrect, actually
-- stop, don't, not right
-- dumb, stupid, idiot (when directed at agent)
-- fix this, change it
+**Strong frustration (user is upset):**
+- "傻逼", "草泥马", "操你妈", "他妈的"
+- "你他妈", "我操", "我靠"
+- "dumb", "stupid", "idiot", "wtf", "damn"
+- "are you kidding", "seriously", "come on"
+
+**Dismissive tone:**
+- "算了", "不用了", "随你", "随便"
+- "whatever", "never mind", "forget it"
 
 ## Log Templates
 
@@ -113,5 +118,5 @@ openclaw hooks enable self-improving-claw
 > Log it, learn it, don't repeat it.
 
 - **Log quickly**: One line + user quote
-- **Review weekly**: Check `.learnings/` regularly
+- **Review weekly**: Check `.learnings/` regularly  
 - **Improve continuously**: Same mistake max 3 times
