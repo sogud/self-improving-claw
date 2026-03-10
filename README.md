@@ -10,17 +10,6 @@ A minimal self-improvement system for OpenClaw.
 | Command failure | `.learnings/ERRORS.md` |
 | Missing feature | `.learnings/FEATURE_REQUESTS.md` |
 
-## Daily Report (Optional)
-
-Auto-generate daily summary with pattern detection:
-
-```bash
-# Add to OpenClaw cron (see CRON.md)
-bash ~/.openclaw/skills/self-improving-claw/scripts/generate-report.sh
-```
-
-See [CRON.md](CRON.md) for configuration.
-
 ## Installation
 
 ```bash
