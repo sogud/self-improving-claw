@@ -1,42 +1,117 @@
 ---
 name: self-improving-claw
-description: "暴躁版自我改进，记录被骂和犯错"
+description: "Self-improvement system that captures corrections and errors"
 metadata:
   openclaw:
-    emoji: "🤬"
+    emoji: "📝"
     events:
       - "agent:bootstrap"
 ---
 
 # Self-Improving Claw
 
-专为 OpenClaw 设计的暴躁版自我改进系统。
+Captures user corrections, command failures, and missing features for continuous improvement.
 
-## 什么时候触发
+## When to Log
 
-| 场景 | 写入文件 |
-|------|----------|
-| 被主人骂了 | `.learnings/LEARNINGS.md` |
-| 命令失败 | `.learnings/ERRORS.md` |
-| 功能缺失 | `.learnings/FEATURE_REQUESTS.md` |
+| Trigger | Log File | Example |
+|---------|----------|---------|
+| User corrects you | `LEARNINGS.md` | "No, that's wrong..." |
+| Command fails | `ERRORS.md` | `exec` returns non-zero |
+| Feature missing | `FEATURE_REQUESTS.md` | User wants X, not supported |
 
-## 安装
+## Correction Keywords (Chinese & English)
+
+The following keywords in user messages indicate a correction:
+
+**Chinese:**
+- 不对, 错了, 不是这样, 不是
+- 你搞错了, 不对吧, 改下
+- 傻逼, 草泥马, 操你妈
+- 别, 不要, 别这样
+
+**English:**
+- that's wrong, no, incorrect, actually
+- stop, don't, not right
+- dumb, stupid, idiot (when directed at agent)
+- fix this, change it
+
+## Log Templates
+
+### LEARNINGS.md
+
+```markdown
+## [YYYY-MM-DD] Brief description
+
+**User said:** "..."
+
+**What I did wrong:** ...
+**What I should do:** ...
+**How to improve:** ...
+```
+
+### ERRORS.md
+
+```markdown
+## [YYYY-MM-DD] Brief description
+
+**Command:** `...`
+**Error:** ...
+**Fix:** ...
+```
+
+### FEATURE_REQUESTS.md
+
+```markdown
+## [YYYY-MM-DD] Feature description
+
+**Request:** ...
+**Current status:** Not supported
+**Possible solution:** ...
+```
+
+## Promotion Rules
+
+When a pattern repeats 3+ times, promote to:
+
+| Pattern Type | Promote To | Example |
+|--------------|------------|---------|
+| Behavior | `SOUL.md` | "Confirm before config changes" |
+| Workflow | `AGENTS.md` | "Break complex tasks into steps" |
+| Tool usage | `TOOLS.md` | "Use trash, never rm" |
+
+## Installation
 
 ```bash
+# Clone to skills directory
 git clone https://github.com/immersogud/self-improving-claw.git \
   ~/.openclaw/skills/self-improving-claw
 
+# Create learning files
 mkdir -p ~/.openclaw/workspace/.learnings
-cp ~/.openclaw/skills/self-improving-claw/*.template \
-  ~/.openclaw/workspace/.learnings/
+touch ~/.openclaw/workspace/.learnings/{LEARNINGS,ERRORS,FEATURE_REQUESTS}.md
 ```
 
-## 使用
+## Optional: Enable Hook
 
-每次被纠正后，手动记录：
-- 主人原话
-- 错误是什么
-- 正确做法
-- 怎么改进
+```bash
+cp -r hooks/openclaw ~/.openclaw/hooks/self-improving-claw
+openclaw hooks enable self-improving-claw
+```
 
-定期回顾，避免重复犯错。
+## File Structure
+
+```
+~/.openclaw/workspace/.learnings/
+├── LEARNINGS.md          # Corrections, knowledge gaps
+├── ERRORS.md             # Command failures
+└── FEATURE_REQUESTS.md   # Feature requests
+```
+
+## Core Principle
+
+> Log it, learn it, don't repeat it.
+
+- **Log quickly**: One line + user quote
+- **Review weekly**: Check `.learnings/` regularly
+- **Improve continuously**: Same mistake max 3 times
