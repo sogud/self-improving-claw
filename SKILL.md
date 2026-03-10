@@ -1,6 +1,6 @@
 ---
 name: self-improving-claw
-description: "Self-improvement system that captures corrections, errors, profanity, and failed commands. Triggers on: user corrections, command failures, strong language, wrong tool usage, and missing capabilities."
+description: "Captures corrections, errors, profanity (傻逼，草泥马，操你妈，他妈的，你他妈，我操，卧槽，妈的，滚，fuck, fucking, shit, bullshit, damn, hell, asshole, bitch, dumb, stupid, idiot, wtf, are you kidding, seriously), wrong tool usage, and missing features. Triggers on: user corrections, command failures, strong language, repeated mistakes, frustration signals."
 metadata:
   openclaw:
     emoji: "📝"
